@@ -1,7 +1,8 @@
+import 'package:equatable/equatable.dart';
 import 'package:tasketiya/models/city_details.dart';
 
-class Cities {
-  Cities({
+class Cities extends Equatable {
+  const Cities({
     this.links,
     this.page,
     this.perPage,
@@ -46,10 +47,22 @@ class Cities {
         "country_code": countryCode,
         "status": status,
       };
+
+  @override
+  List<Object?> get props => [
+        links,
+        page,
+        perPage,
+        totalPages,
+        totalCities,
+        cities,
+        countryCode,
+        status
+      ];
 }
 
-class City {
-  City({
+class City extends Equatable {
+  const City({
     this.geonameid,
     this.population,
     this.name,
@@ -89,10 +102,21 @@ class City {
         "country": country?.toJson(),
         "division": division?.toJson(),
       };
+
+  @override
+  List<Object?> get props => [
+        geonameid,
+        population,
+        name,
+        latitude,
+        longitude,
+        country,
+        division,
+      ];
 }
 
-class Links {
-  Links({
+class Links extends Equatable {
+  const Links({
     this.first,
     this.last,
     this.next,
@@ -117,4 +141,12 @@ class Links {
         "next": next,
         "previous": previous,
       };
+
+  @override
+  List<Object?> get props => [
+        first,
+        last,
+        next,
+        previous,
+      ];
 }
