@@ -9,13 +9,7 @@ abstract class CitiesEvent extends Equatable {
 
 class LoadCities extends CitiesEvent {}
 
-class LoadMoreCities extends CitiesEvent {
-  final Cities? citiesData;
-  const LoadMoreCities({this.citiesData});
 
-  @override
-  List<Object> get props => [citiesData!];
-}
 
 class SearchCities extends CitiesEvent {
   final Cities? citiesData;

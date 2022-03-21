@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tasketiya/blocs/cities/bloc/cities_bloc.dart';
-import 'package:tasketiya/views/cities_page.dart';
+import 'package:tasketiya/blocs/city_details/bloc/city_details_bloc.dart';
+import 'package:tasketiya/views/cities/cities_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +15,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
         providers: [
-          BlocProvider(create: (context) => CitiesBloc()..add(LoadCities())),
+          BlocProvider(
+            create: (context) => CitiesBloc()..add(LoadCities()),
+          ),
+          BlocProvider(
+            create: (context) => CityDetailsBloc(),
+          ),
         ],
         child: MaterialApp(
           title: 'Flutter Demo',

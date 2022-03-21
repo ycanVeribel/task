@@ -10,12 +10,9 @@ part 'cities_state.dart';
 class CitiesBloc extends Bloc<CitiesEvent, CitiesState> {
   CitiesBloc() : super(CitiesLoading()) {
     on<LoadCities>(_onLoadCities);
-    on<LoadMoreCities>(_onLoadMoreCities);
     on<SearchCities>(_onSearchCities);
   }
 }
-
-void _onLoadMoreCities(LoadMoreCities event, Emitter<CitiesState> emit) {}
 
 void _onLoadCities(LoadCities event, Emitter<CitiesState> emit) async {
   var res = await LocationsService().getCities();
