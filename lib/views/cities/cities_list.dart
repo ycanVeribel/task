@@ -1,7 +1,9 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tasketiya/blocs/city_details/bloc/city_details_bloc.dart';
-import 'package:tasketiya/views/city_details/city_details_page.dart';
+import 'package:tasketiya/main.dart';
+import 'package:tasketiya/routes/app_routes.dart';
 
 import '../../blocs/cities/bloc/cities_bloc.dart';
 import '../widgets/city_card.dart';
@@ -29,11 +31,8 @@ class CitiesList extends StatelessWidget {
                           LoadCityDetails(
                               geonameid: state.cityList![index]!.geonameid!),
                         );
-                    Navigator.push(context, MaterialPageRoute(
-                      builder: (context) {
-                        return const CityDetailsPage();
-                      },
-                    ));
+
+                    appRouter.push(const CityDetailsPageRoute());
                   },
                 );
               },

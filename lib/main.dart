@@ -2,14 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tasketiya/blocs/cities/bloc/cities_bloc.dart';
 import 'package:tasketiya/blocs/city_details/bloc/city_details_bloc.dart';
-import 'package:tasketiya/views/cities/cities_page.dart';
+import 'package:tasketiya/routes/app_routes.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
+final appRouter = AppRoutes();
+
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +24,9 @@ class MyApp extends StatelessWidget {
             create: (context) => CityDetailsBloc(),
           ),
         ],
-        child: MaterialApp(
+        child: MaterialApp.router(
+          routerDelegate: appRouter.delegate(),
+          routeInformationParser: appRouter.defaultRouteParser(),
           title: 'Flutter Demo',
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
@@ -41,7 +45,6 @@ class MyApp extends StatelessWidget {
               ),
             ),
           ),
-          home: const CitiesPage(),
         ));
   }
 }

@@ -15,7 +15,7 @@ class CityDetailsBloc extends Bloc<CityDetailsEvent, CityDetailsState> {
 
 void _onLoadCities(
     LoadCityDetails event, Emitter<CityDetailsState> emit) async {
-      
+  emit(CityDetailsLoading());
   var res = await LocationsService().getCityDetails(geonameid: event.geonameid);
   emit(CityDetailsLoaded(res));
 }
