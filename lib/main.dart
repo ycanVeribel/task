@@ -5,13 +5,13 @@ import 'package:tasketiya/blocs/city_details/bloc/city_details_bloc.dart';
 import 'package:tasketiya/routes/app_routes.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 final appRouter = AppRoutes();
 
 class MyApp extends StatelessWidget {
-  MyApp({Key? key}) : super(key: key);
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
